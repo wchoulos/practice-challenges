@@ -9,11 +9,6 @@
 # not having to store any coords. Run time likely not optimal. Using helpers makes it cleaner but slows it down here. 
 # TODO: Add pygame to draw the fractal. 
 
-def turn_right(x):
-	return (x + 1) % 4
-
-def turn_left(x):
-	return (x - 1) % 4
 
 def move_forward(coords, orientation):
 	if orientation == 0:
@@ -65,9 +60,10 @@ def print_n(iterations):
 		coord_sums[0] += curr_coords[0]
 		coord_sums[1] += curr_coords[1]
 		if direction == right:
-			orientation = turn_right(orientation)
+			orientation = (orientation + 1) % 4
 		else:
-			orientation = turn_left(orientation)
+			orientation = (orientation - 1) % 4
+			
 	curr_coords = move_forward(curr_coords, orientation)
 	print(curr_coords[0], curr_coords[1])
 	coord_sums[0] += curr_coords[0]
