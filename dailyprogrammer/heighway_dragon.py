@@ -9,14 +9,6 @@
 # not having to store any coords. Run time likely not optimal. Using helpers makes it cleaner but slows it down here. 
 # TODO: Add pygame to draw the fractal. 
 
-<<<<<<< HEAD
-=======
-def turn_right(x):
-	return (x + 1) % 4
-
-def turn_left(x):
-	return (x - 1) % 4
->>>>>>> 96fff2ee4bb13b09de4d8444930ebd0732ef295e
 
 def move_forward(coords, orientation):
 	if orientation == 0:
@@ -42,10 +34,6 @@ def list_of_turns(prev):
 def print_n(iterations):
 	#print the origin
 	print(0, 0)
-<<<<<<< HEAD
-=======
-	
->>>>>>> 96fff2ee4bb13b09de4d8444930ebd0732ef295e
 	#variables
 	right = 0
 	left = 1
@@ -53,42 +41,24 @@ def print_n(iterations):
 	curr_coords = [0,0]
 	folds = [0]
 	coord_sums = [0,0]
-<<<<<<< HEAD
-=======
-
->>>>>>> 96fff2ee4bb13b09de4d8444930ebd0732ef295e
 	#base case
 	if(iterations == 1):
 		base_case = [[1,0], [1,1]]
 		for coord in base_case:
 			print(coord[0], coord[1])
 		return
-<<<<<<< HEAD
 	for N in range(1, iterations): 
 		folds = list_of_turns(folds)
 		N += 1
-=======
-
-	for N in range(1, iterations): 
-		folds = list_of_turns(folds)
-		N += 1
-
->>>>>>> 96fff2ee4bb13b09de4d8444930ebd0732ef295e
 	for direction in folds:
 		curr_coords = move_forward(curr_coords, orientation)
 		print(curr_coords[0], curr_coords[1])
 		coord_sums[0] += curr_coords[0]
 		coord_sums[1] += curr_coords[1]
 		if direction == right:
-<<<<<<< HEAD
 			orientation = (orientation + 1) % 4
 		else:
 			orientation = (orientation - 1) % 4
-=======
-			orientation = turn_right(orientation)
-		else:
-			orientation = turn_left(orientation)
->>>>>>> 96fff2ee4bb13b09de4d8444930ebd0732ef295e
 	curr_coords = move_forward(curr_coords, orientation)
 	print(curr_coords[0], curr_coords[1])
 	coord_sums[0] += curr_coords[0]
