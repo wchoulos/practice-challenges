@@ -34,7 +34,6 @@ def list_of_turns(prev):
 def print_n(iterations):
 	#print the origin
 	print(0, 0)
-	
 	#variables
 	right = 0
 	left = 1
@@ -42,18 +41,15 @@ def print_n(iterations):
 	curr_coords = [0,0]
 	folds = [0]
 	coord_sums = [0,0]
-
 	#base case
 	if(iterations == 1):
 		base_case = [[1,0], [1,1]]
 		for coord in base_case:
 			print(coord[0], coord[1])
 		return
-
 	for N in range(1, iterations): 
 		folds = list_of_turns(folds)
 		N += 1
-
 	for direction in folds:
 		curr_coords = move_forward(curr_coords, orientation)
 		print(curr_coords[0], curr_coords[1])
@@ -63,7 +59,6 @@ def print_n(iterations):
 			orientation = (orientation + 1) % 4
 		else:
 			orientation = (orientation - 1) % 4
-			
 	curr_coords = move_forward(curr_coords, orientation)
 	print(curr_coords[0], curr_coords[1])
 	coord_sums[0] += curr_coords[0]
